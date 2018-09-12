@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			body {
+				background-image: url(E:/HTML_workspace/bg_flower.gif), url(E:/HTML_workspace/bg_flower_2.gif);
+			}
+			
+			div {
+				width: 100px;
+				height: 75px;
+				background-color: lightskyblue;
+				border: 1px solid black;
+			}
+			
+			h1 {
+				text-shadow: 15px 15px 5px darksalmon;
+				color: saddlebrown;
+				font: "calisto mt";
+			}
+			
+			p.test {
+				width: 20em;
+				border: 2px solid royalblue;
+				word-wrap: break-word;
+				font-size: 35px;
+				font: bolder;
+				color: orangered;
+				text-shadow: 5px 5px 5px slateblue;
+			}
+			
+			#rotate {
+				width: 100px;
+				height: 110px;
+				background-color: lightskyblue;
+				border: 2px solid blue;
+				text-shadow: 3px 3px 3px royalblue;
+				transition: width 2s, height 2s;
+				
+				/*-webkit-transition: width 2s, height 2s, -webkit-transform 2s;*/
+				/* Safari and Chrome */
+			
+			}
+			
+			#rotate:hover {
+				width: 200px;
+				height: 220px;
+				transform: rotate(180deg);
+			
+				/*-webkit-transform: rotate(180deg);*/
+				/* Safari and Chrome */
+				
+			}
+			
+			#div2 {
+				transform: rotate(30deg);
+				-ms-transform: rotate(30deg);
+				-moz-transform: rotate(30deg);
+				-webkit-transform: rotate(30deg);
+				-moz-transform: rotate(30deg);
+			}
+			
+			#borders {
+				text-align: center;
+				border: 2px solid #a1a1a1;
+				padding: 10px 40px;
+				background: #dddddd;
+				width: 350px;
+				border-radius: 25px;
+				-moz-border-radius: 25px;
+				box-shadow: 10px 10px 5px #888888;
+			}
+			
+			#round {
+				border: 20px solid transparent;
+				border-image: url(E:/HTML_workspace/border.png) 30 30 round;
+			}
+			
+			#stretch {
+				border: 20px solid transparent;
+				border-image: url(E:/HTML_workspace/border.png) 30 30 stretch;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="">
+			world
+		</div>
+		<div id="div2">
+			hello
+		</div>
+		<div id="borders">
+			border-radius 属性允许您向元素添加圆角。阴影
+		</div>
+		<br /><br /><br />
+
+		<div id="round">在这里，图片铺满整个边框。</div>
+		<br>
+		<div id="stretch">在这里，图片被拉伸以填充该区域。</div>
+		<p>这是我们使用的图片：</p>
+		<img src="E:/HTML_workspace/border.png">
+		<br /><br /><br />
+		<h1>文本阴影效果！</h1>
+		<p class="test">This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+		<br /><br /><br />
+		<div id="rotate">请把鼠标指针放到黄色的 div 元素上，来查看过渡效果。</div>
+	</body>
+
+</html>

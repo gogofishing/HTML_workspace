@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 选择器</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").hide();
+            })
+        })
+    </script>
+</head>
+<body>
+<h1>This is a head.</h1>
+<p>This is a paragraph 1</p>
+<p>This is a paragraph 2</p>
+<p>This is a paragraph 3</p>
+<p>This is a paragraph 4</p>
+<button type="button">Click me to hide paragraph</button>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper {
+            /*text-transform: uppercase; */
+            background: #ececec;
+            color: #555;
+            cursor: help;
+            font-family: "Gill Sans", Impact, sans-serif;
+            font-size: 20px;
+            position: relative;
+            text-align: center;
+            width: 200px;
+            -webkit-transform: translateZ(0); /* webkit flicker fix */
+            -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+        }
+
+        .wrapper .tooltip {
+            white-space: nowrap;
+            font-size: 14px;
+            text-align: left;
+            background: #96b97d;
+            bottom: 100%;
+            color: #fff;
+            display: block;
+            left: -25px;
+            margin-bottom: 15px;
+            opacity: 0;
+            padding: 14px;
+            pointer-events: none;
+            position: absolute;
+
+            -webkit-transform: translateY(10px);
+            -moz-transform: translateY(10px);
+            -ms-transform: translateY(10px);
+            -o-transform: translateY(10px);
+            transform: translateY(10px);
+            -webkit-transition: all .25s ease-out;
+            -moz-transition: all .25s ease-out;
+            -ms-transition: all .25s ease-out;
+            -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+            -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+            -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+            -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+            -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+        }
+        .tooltip a {
+            color:#fff;
+        }
+        /* This bridges the gap so you can mouse into the tooltip without it disappearing */
+        .wrapper .tooltip:before {
+            bottom: -20px;
+            content: " ";
+            display: block;
+            height: 20px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        /* CSS Triangles - see Trevor's post */
+        .wrapper .tooltip:after {
+            border-left: solid transparent 10px;
+            border-right: solid transparent 10px;
+            border-top: solid #96b97d 10px;
+            bottom: -10px;
+            content: " ";
+            height: 0;
+            left: 20%;
+            margin-left: -13px;
+            position: absolute;
+            width: 0;
+        }
+        .wrapper .tooltip1 {
+            margin-left: 50px;
+            padding-top: 0px;
+        }
+        .wrapper:hover .tooltip {
+            opacity: 1;
+            pointer-events: auto;
+            -webkit-transform: translateY(0px);
+            -moz-transform: translateY(0px);
+            -ms-transform: translateY(0px);
+            -o-transform: translateY(0px);
+            transform: translateY(0px);
+        }
+
+        /* IE can just show/hide with no transition */
+        .lte8 .wrapper .tooltip {
+            display: none;
+        }
+
+        .lte8 .wrapper:hover .tooltip {
+            display: block;
+        }
+
+    </style>
+
+    <style type="text/css">
+        div.dig, div.hour, div.min, div.sec
+        {
+            position:absolute;
+        }
+        div.hour, div.min, div.sec
+        {
+            width:2px;
+            height:2px;
+            font-size:2px;
+        }
+        div.dig
+        {
+            width:30px;
+            height:30px;
+            font-family:arial,verdana,sans-serif;
+            font-size:10px;
+            color:#000000;
+            text-align:center;
+            padding-top:10px
+        }
+        div.min
+        {
+            background:#0000FF;
+        }
+        div.hour
+        {
+            background:#000000;
+        }
+        div.sec
+        {
+            background:#FF0000;
+        }
+    </style>
+
+</head>
+<body>
+<p id="demo_1"></p>
+<p id="demo_2"></p>
+<button type="button" onclick="myTimerStop()">Stop时间</button>
+<div class="example">
+    <div class="example">
+        <table><tbody><tr>
+            <td>
+                <div style="width:120px;height:100px;position:relative;left:58px;top:50px;">
+                    <div id="dig1" class="dig" style="top: -49.823px; left: 5.6814px;">1</div>
+                    <div id="dig2" class="dig" style="top: -35.2232px; left: 20.5112px;">2</div>
+                    <div id="dig3" class="dig" style="top: -15.1496px; left: 25.9997px;">3</div>
+                    <div id="dig4" class="dig" style="top: 4.96459px; left: 20.6614px;">4</div>
+                    <div id="dig5" class="dig" style="top: 19.6749px; left: 5.94126px;">5</div>
+                    <div id="dig6" class="dig" style="top: 24.9996px; left: -14.1765px;">6</div>
+                    <div id="dig7" class="dig" style="top: 19.4976px; left: -34.2464px;">7</div>
+                    <div id="dig8" class="dig" style="top: 4.65796px; left: -48.8363px;">8</div>
+                    <div id="dig9" class="dig" style="top: -15.5025px; left: -53.9968px;">9</div>
+                    <div id="dig10" class="dig" style="top: -35.527px; left: -48.3314px;">10</div>
+                    <div id="dig11" class="dig" style="top: -49.9953px; left: -33.3734px;">11</div>
+                    <div id="dig12" class="dig" style="top: -54.9914px; left: -13.1715px;">12</div>
+
+                    <div id="hour1" class="hour" style="top: 0px; left: 0px;"></div>
+                    <div id="hour2" class="hour" style="top: -2.5324px; left: 7.58861px;"></div>
+                    <div id="hour3" class="hour" style="top: -5.06479px; left: 15.1772px;"></div>
+                    <div id="hour4" class="hour" style="top: -7.59719px; left: 22.7658px;"></div>
+
+                    <div id="min1" class="min" style="top: 0px; left: 0px;"></div>
+                    <div id="min2" class="min" style="top: 5.94942px; left: 5.34831px;"></div>
+                    <div id="min3" class="min" style="top: 11.8988px; left: 10.6966px;"></div>
+                    <div id="min4" class="min" style="top: 17.8483px; left: 16.0449px;"></div>
+                    <div id="min5" class="min" style="top: 23.7977px; left: 21.3932px;"></div>
+
+                    <div id="sec1" class="sec" style="top: 0px; left: 0px;"></div>
+                    <div id="sec2" class="sec" style="top: 0.00637061px; left: 8px;"></div>
+                    <div id="sec3" class="sec" style="top: 0.0127412px; left: 16px;"></div>
+                    <div id="sec4" class="sec" style="top: 0.0191118px; left: 24px;"></div>
+                    <div id="sec5" class="sec" style="top: 0.0254825px; left: 32px;"></div>
+                    <div id="sec6" class="sec" style="top: 0.0318531px; left: 40px;"></div>
+                </div>
+            </td>
+            <td>
+                <p class="tutintro">JavaScript 一个设定的时间间隔之后来执行代码</p>
+                <p class="tutintro">我们称之为计时事件</p>
+            </td>
+        </tr></tbody></table>
+    </div>
+</div>
+
+
+<script>
+    /*    setInterval(function () {
+            alert("hello");
+        }, 3000);*/
+    var myTime = setInterval(function () {
+        myTimer()
+    }, 1000);
+
+    function myTimer() {
+        var d = new Date();
+        var t = d.toLocaleTimeString();
+        document.getElementById("demo_1").innerHTML = t;
+    }
+
+    var myTime2 = setInterval("myTimer2()", 1000);
+    function myTimer2() {
+        var d = new Date();
+        // var t = d.toLocaleTimeString();
+        document.getElementById("demo_2").innerHTML = d;
+    }
+    document.onload = myTime2;
+    function myTimerStop() {
+        clearInterval(myTime)
+    }
+    var H = "....";
+    H = H.split("");
+    var M = "-----";
+    M = M.split("");
+    var S = "======";
+    S = S.split("");
+    var Ypos = 0;
+    var Xpos = 0;
+    var Ybase = 8;
+    var Xbase = 8;
+    var dots = 12;
+
+    function clock() {
+        var time = new Date();
+        var secs = time.getSeconds();
+        var sec = -1.57 + Math.PI * secs / 30;
+        var mins = time.getMinutes();
+        var min = -1.57 + Math.PI * mins / 30;
+        var hrs = time.getHours();
+        var hr = -1.57 + Math.PI * hrs / 6 + Math.PI * parseInt(time.getMinutes()) / 360;
+        for (i = 0; i < dots; i++) {
+            document.getElementById("dig" + (i + 1)).style.top = 0 - 15 + 40 *
+                Math.sin(-0.49 + dots + i / 1.9).toString() + "px";
+            document.getElementById("dig" + (i + 1)).style.left = 0 - 14 + 40 *
+                Math.cos((-0.49) + dots + i / 1.9).toString(+"px");
+        }
+        for (i = 0; i < S.length; i++) {
+            document.getElementById("sec" + (i + 1)).style.top = Ypos + i * Ybase * Math.sin(sec).toString() + "px";
+            document.getElementById("sec" + (i + 1)).style.left = Xpos + i * Xbase * Math.cos(sec).toString() + "px";
+        }
+        for (i = 0; i < M.length; i++) {
+            document.getElementById("min" + (i + 1)).style.top = Ypos + i * Ybase * Math.sin(min).toString() + "px";
+            document.getElementById("min" + (i + 1)).style.left = Xpos + i * Xbase * Math.cos(min).toString() + "px";
+        }
+        for (i = 0; i < H.length; i++) {
+            document.getElementById("hour" + (i + 1)).style.top = Ypos + i * Ybase * Math.sin(hrs).toString() + "px";
+            document.getElementById("hour" + (i + 1)).style.left = Xpos + i * Xbase * Math.cos(hrs).toString() + "px";
+        }
+/*        setInterval(function () {
+            clock();
+        }, 100);*/
+        setTimeout('clock()',50);
+    }
+
+    window.onload=clock;
+
+
+</script>
+</body>
+</html>

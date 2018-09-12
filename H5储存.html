@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>H5储存</title>
+		<style>
+			c
+		</style>
+		<script type="text/javascript">
+			function clickCounter() {
+				localStorage.cllllll = 0;
+				if(typeof(Storage) !== "undefined") {
+					if(localStorage.clickcount) {
+						localStorage.clickcount = Number(localStorage.clickcount) + 1;
+					} else {
+						localStorage.clickcount = 1;
+					}
+					document.getElementById("result").innerHTML = "您已经点击这个按钮" + localStorage.clickcount + "次; cllllll=" + localStorage.cllllll;
+				} else {
+					document.getElementById("result").innerHTML = "抱歉！您的浏览器不支持Web Storage...";
+				}
+			}
+			
+			function clickSession() {
+				if(typeof(Storage) !== "undefined") {
+					if(sessionStorage.countNum) {
+						sessionStorage.countNum = Number(sessionStorage.countNum) + 1;
+					}
+					else {
+						sessionStorage.countNum = 1;
+					}
+					document.getElementById("result22").innerHTML = "在本 session 中，您已经点击这个按钮 " + sessionStorage.countNum + " 次。";
+				}
+				else {
+					document.getElementById("result22").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<p>
+			<br />
+			<button onclick="clickCounter()" type="button">请点击这里！(localStorage)</button>
+		</p>
+		<div id="result"></div>
+		<p>请点击按钮使计数器递增。</p>
+		<p>请关闭浏览器或标签页，然后再试一次，计数器将继续计数（不会重置）。</p>
+		<br /><br /><br />
+		<p>
+			<button onclick="clickSession()" type="button">请点击这里！(sessionStorage)</button>
+		</p>
+		<div id="result22"></div>
+		<p>请点击按钮使计数器递增。</p>
+		<p>请关闭浏览器或标签页，然后再试一次，计数器将继续计数（重置）。</p>
+	</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo_1"></p>
+<p id="demo_2"></p>
+<p id="demo_3"></p>
+<script>
+    var myJson, i, x = "";
+    myJson = {
+        "name": "website",
+        "num": 3,
+        "site": ["google", "baidu", "amazon"]
+    };
+    for (i in myJson.site) {
+        x += myJson.site[i] + "<br />";
+    }
+    document.getElementById("demo_1").innerHTML = x;
+
+    var Json2 = {
+        "name2": "wjh",
+        "aleca2": 10000,
+        "sites2": {
+            "site1": "www.baidu.com1",
+            "site2": "www.baidu.com2",
+            "site3": "www.baidu.com3"
+        }
+    };
+    for(i in Json2.sites2) {
+        x += Json2.sites2[i];
+    }
+    document.getElementById("demo_2").innerHTML = x;
+
+    var myObj = {
+        "name": "网站",
+        "num": 3,
+        "sites": [
+            {"name": "Google", "info": ["Android", "Google 搜索", "Google 翻译"]},
+            {"name": "Runoob", "info": ["菜鸟教程", "菜鸟工具", "菜鸟微信"]},
+            {"name": "Taobao", "info": ["淘宝", "网购"]}
+        ]
+    };
+    var x,y,str;
+    for( x in myObj.sites) {
+        str += "<h1>" + myObj.sites[x].name + "</h1>";
+        for ( y in myObj.sites[x].info) {
+            str += myObj.sites[x].info[y] + "<br />";
+        }
+    }
+    document.getElementById("demo_3").innerHTML = str;
+    // for (i in myObj.sites) {
+    //     x += "<h1>" + myObj.sites[i].name + "</h1>";
+    //     for (j in myObj.sites[i].info) {
+    //         x += myObj.sites[i].info[j] + "<br>";
+    //     }
+    // }
+    //
+    // document.getElementById("demo_3").innerHTML = x;
+
+</script>
+</body>
+</html>

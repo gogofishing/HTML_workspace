@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo_1"></p>
+<p id="demo_2"></p>
+<button type="button" onclick="newDoc()">点击</button>
+<input type="button" value="Back" onclick="goBack()">
+<input type="button" value="Forward" onclick="goForward()">
+<script>
+    var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    document.getElementById("demo_1").innerHTML = "浏览器window宽度: " + w + ", 高度: " + h + "。";
+    // document.getElementById("demo_2").innerHTML = location.href;
+    document.getElementById("demo_2").innerHTML = location.pathname;
+    function newDoc() {
+        window.location.assign("http://www.google.ca");
+    }
+    function goForward()
+    {
+        window.history.forward()
+    }
+    function goBack()
+    {
+        window.history.back()
+    }
+</script>
+</body>
+</html>

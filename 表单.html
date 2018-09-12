@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+
+	<body>
+		<form>
+			First name:<br />
+			<input type="text" name="firstname" /><br /> Last name:<br />
+			<input type="text" name="lastname" /><br />
+			<label for="male2">Male1</label>
+			<input type="radio" name="sex" value="male" id="male2" checked="" />Male<br />
+			<label for="female2r">Female1</label>
+			<input type="radio" name="sex" value="female" id="female2" />Female<br />
+			<input type="submit" value="submit" /><br />
+			<select name="cars">
+				<option value="volve">Volvo</option>
+				<option value="saab">Saab</option>
+				<option value="fiat">Fiat</option>
+				<option value="audi" selected>Audi</option>
+			</select><br />
+			<textarea name="message" rows="10" cols="30">
+				The cat was playing in the garden.
+			</textarea><br />
+			<button type="button" onclick="alert('Hello World!')">Click Me!</button>
+		</form>
+		<form action="action_page.php">
+			<input list="browsers">
+			<datalist id="browsers">
+   				<option value="Internet Explorer">
+   				<option value="Firefox">
+   				<option value="Chrome">
+   				<option value="Opera">
+   				<option value="Safari">
+			</datalist>
+		</form>
+		<form>
+			User name:<br>
+			<input type="text" name="username">
+			<br> User password:<br>
+			<input type="password" name="psw">
+		</form>
+		<form>
+			<input type="checkbox" name="vehicle" value="Bike" checked="qwe">I have a bike
+			<br>
+			<input type="checkbox" name="vehicle" value="Car" checked="">I have a car
+		</form>
+		<form>
+			Quantity (between 1 and 5):
+			<input type="number" name="quantity" min="1" max="5">
+		</form>
+		<form>
+			Birthday:
+			<input type="date" name="bday">
+		</form>
+		<form>
+			Enter a date before 1980-01-01:
+			<input type="date" name="bday" max="1979-12-31"><br> Enter a date after 2000-01-01:
+			<input type="date" name="bday" min="2000-01-02"><br>
+		</form>
+		<form>
+			Select your favorite color:<br />
+			<input type="color" name="favcolor"><br />
+			<input type="range" name="points" min="0" max="100"><br /> 
+			Birthday (month and year):<br />
+			<input type="month" name="bdaymonth"><br /> 
+			Select a week:<br />
+			<input type="week" name="week_year"><br /> 
+			Select a time:<br /> Birthday (date and time):<br />
+			<input type="datetime-local" name="bdaytime"><br />
+			E-mail:<br />
+  			<input type="email" name="email"><br />
+  			Search Google:<br />
+  			<input type="search" name="googlesearch"><br />
+		</form>
+	</body>
+
+</html>

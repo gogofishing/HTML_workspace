@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function change_Pic() {
+            var src_Pic = document.getElementById("bulb").src.match("off");
+            // var picc = document.getElementById("bulb");
+            // if (picc.src.match("off")) {
+            if (src_Pic) {
+                document.getElementById("bulb").src = "../../picture/pic_bulbon.gif";
+            }
+            else {
+                document.getElementById("bulb").src = "../../picture/pic_bulboff.gif";
+            }
+        }
+
+    </script>
+</head>
+<body>
+<p>Hello world!</p>
+<div id="main">
+    <p>DOM is useful</p>
+    <p>该实力展示了<b>getElementsByTagName</b>方法</p>
+</div>
+<p class="class_1">你好世界!</p>
+<p id="demo_1"></p>
+<p id="demo_2"></p>
+<p id="demo_3"></p>
+<script>
+    var x = document.getElementById("main");
+    var y = x.getElementsByTagName("p");
+    document.write("id = 'main' 元素的第一个段落为： " + y[1].innerHTML + "<br />");
+    var z = document.getElementsByClassName("class_1");
+    document.write('class = "class_1" 元素的值为：' + z[0].innerHTML);
+
+    //test null undefined not defined
+    var text_x;
+    var text_y = null;
+    document.getElementById("demo_1").innerHTML = text_x + " : " + typeof text_x;
+    document.getElementById("demo_2").innerHTML = text_y + " : " + typeof text_y;
+    document.getElementById("demo_3").innerHTML = text_z ;
+</script>
+<script>
+    document.write(Date());
+</script>
+<img id="bulb" src="../../picture/pic_bulboff.gif" height="180" width="100"/>
+<button type="button" onclick="change_Pic()">开灯关灯</button>
+
+</body>
+</html>

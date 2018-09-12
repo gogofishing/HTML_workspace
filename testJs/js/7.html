@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        <!--
+        function getFullname() {
+            var f_name = document.getElementById("firstname").value;
+            var l_name = document.getElementById("lastname").value;
+            var full_name = l_name + f_name;
+            document.getElementById("fullname").innerHTML = full_name;
+        }
+
+        var myFullname = {
+            firstname: "John",
+            lastname: "Doe",
+            fullname: function () {
+                return this.firstname + " " + this.lastname
+            }
+        }
+        function getFullname_2() {
+            document.getElementById("fullname").innerHTML = myFullname.fullname();
+        }
+        //-->
+    </script>
+</head>
+<body>
+<form name="getname" method="post">
+    First name:<input type="text" id="firstname">
+    Last name:<input type="text" id="lastname">
+    <button type="button" onclick="getFullname()">Get full name</button>
+    <button type="button" onclick="getFullname_2()">Get full name 2</button>
+    <p id="fullname"></p>
+</form>
+</body>
+</html>

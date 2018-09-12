@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First javaScript</title>
+    <script>
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+    </script>
+</head>
+<body>
+<h1>This is my first JavaScript program</h1>
+<p id="demo">这是一个段落</p>
+<button type="button" onclick="displayDate()">显示日期</button>
+<p>Javascript 能够直接写入HTML输出流中:</p>
+<script>
+    document.write("<h1>这是一个标题</h1>");
+    document.write("<p>这是一个段落</p>");
+</script>
+<p>
+    您只能在 HTML 输出流中使用 <strong>document.write</strong>。
+    如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
+</p>
+<button type="button" onclick="alert('欢迎')">点击这里</button>
+<p id="demo_2">JavaScript 能改变HTML元素内容</p>
+<script>
+    function change_Demo2() {
+        x = document.getElementById("demo_2");
+        x.innerHTML = "Hello JavaScript!";
+    }
+
+    function change_Color() {
+        x = document.getElementById("demo_2");
+        x.style.color = "#ff4a48";
+    }
+</script>
+<button type="button" onclick="change_Demo2()">点击改变HTML文字</button>
+<button type="button" onclick="change_Color()">点击改变HTML颜色</button>
+<script>
+    function changeImage() {
+        var element = document.getElementById("myimage");
+        if (element.src.match("on")) {
+            element.src = "E:/HTML_workspace/picture/pic_bulboff.gif";
+        }
+        else {
+            element.src = "E:/HTML_workspace/picture/pic_bulbon.gif"
+        }
+    }
+</script>
+<p>点击灯泡就可以打开或关闭灯泡</p>
+<img id="myimage" onclick="changeImage()" src="E:/HTML_workspace/picture/pic_bulboff.gif" width="100" height="180">
+<input type="text" id="demo_3">
+<button type="button" onclick="check_Num()">点击查看数字</button>
+<script>
+    function check_Num() {
+        var x = document.getElementById("demo_3").value;
+        // if (x == "" || isNaN(x)) {
+        if (isNaN(x)||x.replace(/(^\s*)|(\s*$)/g,"")=="") {
+            alert("不是数字");
+        }
+        else {
+            alert(document.getElementById("demo_3").value);
+        }
+    }
+</script>
+</body>
+</html>

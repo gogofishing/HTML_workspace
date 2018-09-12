@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("p").dblclick(function () {
+                $(this).hide();
+            })
+        });
+
+        $(document).ready(function () {
+            $("#p1").mouseenter(function () {
+                alert("You enterd p1!")
+            })
+        });
+
+        $(document).ready(function () {
+            $("#p4").mouseleave(function () {
+                alert("You leaved p4!")
+            })
+        });
+        $(document).ready(function () {
+            $("#p2").mousedown(function () {
+                alert("aaaa");
+            })
+        });
+        $(document).ready(function () {
+            $("#p3").mouseup(function () {
+                alert("upupup!");
+            })
+        });
+
+        $(document).ready(function () {
+            $("#p5").hover(
+                function () {
+                    alert("in");
+                },
+                function () {
+                    alert("out");
+                }
+            );
+        });
+
+        $(document).ready(function () {
+            $("input").focus(function () {
+                $(this).css("background-color", "#cccccc");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "#ffffff");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                if (document.getElementById("div1").style.display == "none") {
+                    $("#div1").show();
+                }
+                else {
+                    $("#div1").hide();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<p id="p1">double click 1</p>
+<br />
+<br />
+<p id="p2">double click 2</p>
+<br /><br />
+<p id="p3">double click 3</p>
+<br /><br />
+<p id="p4">double click 4</p>
+<br /><br />
+<p id="p5">double click 5</p>
+<br /><br />
+<p id="p6">double click 6</p>
+<br /><br />
+Name:<input type="text" name="name"><br />
+Email:<input type="text" name="email">
+<div id="div1">
+    <h1>hide() & show()</h1>
+</div>
+<br />
+<button type="button" id="btn1">Click</button>
+<br />
+</body>
+</html>

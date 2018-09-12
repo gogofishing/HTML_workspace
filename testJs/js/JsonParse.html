@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>从 JSON 对象中创建 JavaScript 对象</title>
+</head>
+<body>
+<h2>从 JSON 对象中创建 JavaScript 对象</h2>
+<p id="demo_1"></p>
+<p id="demo_2"></p>
+<p id="demo_3"></p>
+<p id="demo_4"></p>
+<p id="demo_5"></p>
+<p id="demo_6"></p>
+<p id="demo_7"></p>
+<p id="demo_8"></p>
+<p id="demo_9"></p>
+<p id="demo_10"></p>
+<p id="demo_11"></p>
+<script>
+    var JsonObj = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }');
+    document.getElementById("demo_1").innerHTML = JsonObj.name + " " + JsonObj.site;
+    var text = '{ "name":"Runoob", "initDate":"2013-12-14", "site":"www.runoob.com"}';
+    var Obj_1 = JSON.parse(text);
+    Obj_1.initDate = new Date(Obj_1.initDate);
+    document.getElementById("demo_2").innerHTML = Obj_1.initDate;
+    var text_2 = '{ "name":"Runoob", "initDate":"2018-07-17", "site":"www.runoob.com"}';
+    var Obj_2 = JSON.parse(text_2, function (key, value) {
+        if (key == "initDate") {
+            return new Date(value);
+        }
+        else {
+            return value;
+        }
+    });
+    document.getElementById("demo_3").innerHTML = Obj_2.initDate;
+    var text_3 = '{ "name":"Runoob", "alexa":"function () {return 10000;}", "site":"www.runoob.com"}';
+    var Obj_3 = JSON.parse(text_3);
+    Obj_3.alexa = eval("(" + Obj_3.alexa + ")");
+    document.getElementById("demo_4").innerHTML = Obj_3.alexa();
+    var Obj_4 = JSON.stringify(JsonObj);
+    document.getElementById("demo_5").innerHTML = Obj_4;
+    var arr = [ "Google", "Runoob", "Taobao", "Facebook" ];
+    var Obj_5 = JSON.stringify(arr);
+    document.getElementById("demo_6").innerHTML = Obj_5;
+    var Obj_6 = { "name":"Runoob", "initDate":new Date(), "site":"www.runoob.com"};
+    var myJSON = JSON.stringify(Obj_6);
+    document.getElementById("demo_7").innerHTML = myJSON;
+    var myJSON_2 = JSON.parse(myJSON);
+    myJSON_2.initDate = new Date(myJSON_2.initDate);
+    document.getElementById("demo_8").innerHTML = myJSON_2.initDate;
+    var Obj_7 = { "name":"Runoob", "alexa":function () {return 10000;}, "site":"www.runoob.com"};
+    var myJSON_3 = JSON.stringify(Obj_7);
+    document.getElementById("demo_9").innerHTML = myJSON_3;
+    Obj_7.alexa = Obj_7.alexa.toString();
+    var myJSON_4 = JSON.stringify(Obj_7);
+    document.getElementById("demo_10").innerHTML = myJSON_4;
+    var Obj_8 = JSON.parse(myJSON_4);
+    Obj_8.alexa = eval("(" + Obj_8.alexa + ")");
+    document.getElementById("demo_11").innerHTML = Obj_8.alexa();
+</script>
+</body>
+</html>

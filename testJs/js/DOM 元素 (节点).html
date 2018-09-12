@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appendChild</title>
+</head>
+<body>
+<div id="div_1">
+    <p id="p_1">这是一个段落</p>
+    <p id="p_2">这是第二个段落</p>
+</div>
+<script>
+    var para = document.createElement("p");
+    var node = document.createTextNode("这是一个新的段落");
+    para.appendChild(node);
+    var element = document.getElementById("div_1");
+    var child = document.getElementById("p_1");
+    element.appendChild(para);
+    element.insertBefore(para, child);
+    // element.removeChild(child);
+    var child_2 = document.getElementById("p_2");
+    // child_2.parentNode.removeChild(child_2);
+</script>
+</body>
+</html>

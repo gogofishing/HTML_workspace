@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML DOM EventListener</title>
+    <style type="text/css">
+        div {
+            background: coral;
+            border: 3px solid;
+            width: 300px;
+            height: 180px;
+            padding: 50px;
+            font-size: 2em;
+        }
+        div.ddd22 {
+            width: 450px;
+            height: 180px;
+        }
+        #div_3{
+            width: 600px;
+            height: 280px;
+        }
+
+    </style>
+    <script>
+        function myFunction() {
+            alert("button 2");
+        }
+        function myFunction_2() {
+            alert("函数已执行！");
+        }
+        function myFunction_3() {
+            document.getElementById("demo_1").innerHTML = "Clicked!";
+        }
+        function myFunction_4() {
+            document.getElementById("demo_3").innerHTML = Math.random();
+        }
+        function mOver() {
+            document.getElementById("demo_1").innerHTML = "Moused Over!";
+        }
+        function mOut() {
+            document.getElementById("demo_1").innerHTML = "Mouse Out!";
+        }
+        function removeHandler() {
+            document.getElementById("div_3").removeEventListener("mousemove", myFunction_4)
+        }
+    </script>
+</head>
+<body>
+<p>当用户点击元素时弹出 "Hello World!" :</p>
+<p>该实例使用 addEventListener() 方法在按钮中添加点击事件。 </p>
+<button type="button" id="myBtn_1">点击</button>
+<button type="button" id="myBtn_2">点击</button>
+<button type="button" id="myBtn_3">点击</button>
+<p id="demo_1"></p>
+
+<p>实例在 window 对象中使用 addEventListener() 方法。</p>
+<p>尝试重置浏览器的窗口触发 "resize" 事件句柄。</p>
+<p id="demo_2"></p>
+<div id="div_1">
+    <p id="p_1">点击段落，我是冒泡。</p>
+</div>
+<div id="div_2" class="ddd22">
+    <p id="p_2">点击段落，我是捕获。</p>
+</div>
+<div id="div_3">
+    div 元素添加了 onmousemove 事件句柄，鼠标在桔红色的框内移动时会显示随机数。
+    <p>点击按钮移除 DIV 的事件句柄。</p>
+    <button onclick="removeHandler()" id="myBtn_4">点击移除</button>
+    <p id="demo_3"></p>
+</div>
+
+<script>
+    document.getElementById("myBtn_1").addEventListener("click", function () {
+        alert("Hello world!");
+    });
+
+    document.getElementById("myBtn_2").addEventListener("click", myFunction);
+    document.getElementById("myBtn_2").addEventListener("click", myFunction_2);
+    document.getElementById("myBtn_3").addEventListener("click", myFunction_3);
+    document.getElementById("myBtn_3").addEventListener("mouseover", mOver);
+    document.getElementById("myBtn_3").addEventListener("mouseout", mOut);
+    window.addEventListener("resize", function () {
+        document.getElementById("demo_2").innerHTML = Math.random();
+    });
+    document.getElementById("p_1").addEventListener("click", function() {
+        alert("你点击了内部 P 元素!");
+    }, false);
+    document.getElementById("div_1").addEventListener("click", function() {
+        alert(" 你点击了外部 DIV 元素 !");
+    }, false);
+    document.getElementById("p_2").addEventListener("click", function() {
+        alert("你点击了内部 P2 元素!");
+    }, true);
+    document.getElementById("div_2").addEventListener("click", function () {
+        alert("你点击了外部 DIV2 元素 !");
+    }, true);
+    document.getElementById("div_3").addEventListener("mousemove", myFunction_4)
+</script>
+</body>
+</html>

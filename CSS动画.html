@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				animation: myfirst 5s;
+				-moz-animation: myfirst 5s;
+				-webkit-animation: myfirst 5s;
+				-o-animation: myfirst 5s;
+				/* Opera */
+			}
+			
+			@keyframes myfirst {
+				from {
+					background-color: red;
+				}
+				to {
+					background-color: yellow;
+				}
+			}
+			
+			@-moz-keyframes myfirst {
+				from {
+					background-color: red;
+				}
+				to {
+					background-color: yellow;
+				}
+			}
+			
+			@-webkit-keyframes myfirst {
+				from {
+					background-color: red;
+				}
+				to {
+					background-color: yellow;
+				}
+			}
+			
+			@-o-keyframes myfirst {
+				from {
+					background-color: red;
+				}
+				to {
+					background-color: yellow;
+				}
+			}
+			
+			#new2 {
+				width: 200px;
+				height: 200px;
+				background-color: #f88bff;
+				position: relative;
+				animation-name: mysecond;
+				animation-duration: 3s;
+				animation-timing-function: linear;
+				animation-delay: .25s, 100ms;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+				animation-play-state: running;
+				/* Firefox: */
+				-moz-animation-name: mysecond;
+				-moz-animation-duration: 5s;
+				-moz-animation-timing-function: linear;
+				-moz-animation-delay: .25s, 100mss;
+				-moz-animation-iteration-count: infinite;
+				-moz-animation-direction: alternate;
+				-moz-animation-play-state: running;
+				/* Safari and Chrome: */
+				-webkit-animation-name: mysecond;
+				-webkit-animation-duration: 5s;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-delay: .25s, 100mss;
+				-webkit-animation-iteration-count: infinite;
+				-webkit-animation-direction: alternate;
+				-webkit-animation-play-state: running;
+				/* Opera: */
+				-o-animation-name: mysecond;
+				-o-animation-duration: 5s;
+				-o-animation-timing-function: linear;
+				-o-animation-delay: .25s, 100mss;
+				-o-animation-iteration-count: infinite;
+				-o-animation-direction: alternate;
+				-o-animation-play-state: running;
+			}
+			
+			#last {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: relative;
+				animation: mysecond 5s linear 2s infinite alternate;
+				-moz-animation: mysecond 5s linear 2s infinite alternate;
+				-webkit-animation: mysecond 5s linear 2s infinite alternate;
+				-o-animation: mysecond 5s linear 2s infinite alternate;
+				}
+			@keyframes mysecond{
+				0% {
+					background-color: red;
+					left: 0px;
+					top: 0px;
+				}
+				25% {
+					background-color: yellow;
+					left: 500px;
+					top: 0px;
+				}
+				50% {
+					background-color: blue;
+					left: 500px;
+					top: 500px;
+				}
+				75% {
+					background-color: green;
+					left: 0px;
+					top: 500px;
+				}
+				100% {
+					background-color: red;
+					left: 0px;
+					top: 0px;
+				}
+				
+				@-moz-keyframes mysecond{
+				0% {
+					background-color: red;
+					left: 0px;
+					top: 0px;
+				}
+				25% {
+					background-color: yellow;
+					left: 500px;
+					top: 0px;
+				}
+				50% {
+					background-color: blue;
+					left: 500px;
+					top: 500px;
+				}
+				75% {
+					background-color: green;
+					left: 0px;
+					top: 500px;
+				}
+				100% {
+					background-color: red;
+					left: 0px;
+					top: 0px;
+				}
+				
+				@-webkit-keyframes mysecond{
+				0% {
+					background-color: red;
+					left: 0px;
+					top: 0px;
+				}
+				25% {
+					background-color: yellow;
+					left: 500px;
+					top: 0px;
+				}
+				50% {
+					background-color: blue;
+					left: 500px;
+					top: 500px;
+				}
+				75% {
+					background-color: green;
+					left: 0px;
+					top: 500px;
+				}
+				100% {
+					background-color: red;
+					left: 0px;
+					top: 0px;
+				}
+				
+				@-o-keyframes mysecond{
+				0% {
+					background-color: red;
+					left: 0px;
+					top: 0px;
+				}
+				25% {
+					background-color: yellow;
+					left: 500px;
+					top: 0px;
+				}
+				50% {
+					background-color: blue;
+					left: 500px;
+					top: 500px;
+				}
+				75% {
+					background-color: green;
+					left: 0px;
+					top: 500px;
+				}
+				100% {
+					background-color: red;
+					left: 0px;
+					top: 0px;
+				}
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div></div>
+		<p>Another one</p><br />
+		<div id="new2"></div>
+		<p>Last one</p>
+		<div id="last"></div>
+	</body>
+
+</html>

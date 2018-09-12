@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+
+</head>
+<body>
+<h1>为JSON字符串创建对象</h1>
+<p id="demo_1"></p>
+<p>
+    网站名称：<span id="name"></span><br />
+    网站地址：<span id="url"></span><br />
+    网站slogan：<span id="slogan"></span><br />
+</p>
+<button type="button" onclick="change_site1()">点击改变site1</button>
+<button type="button" onclick="delete_slogan()">删除slogan</button>
+<p id="demo_2"></p>
+<p id="demo_3"></p>
+<p id="demo_4"></p>
+<p id="demo_5"></p>
+
+<br />
+<script>
+    var text = '{ "sites" : [' +
+        '{ "name":"Runoob" , "url":"www.runoob.com" },' +
+        '{ "name":"Google" , "url":"www.google.com" },' +
+        '{ "name":"Taobao" , "url":"www.taobao.com" } ]}';
+    /*    var txt = {
+            "sites" : [{"name" : "google1", "url" : "www.google1.ca"},
+                        {"name" : "google2", "url" : "www.google2.ca"},
+                        {"name" : "google3", "url" : "www.google3.ca"} ]
+        }*/
+    obj = JSON.parse(text);
+    document.getElementById("demo_1").innerHTML = obj.sites[1].name + " " + obj.sites[1].url;
+
+    function change_site1() {
+        JSONobject.name = "baidu";
+        JSONobject.url = "www.baidu.com";
+        JSONobject.slogan = "baidu hehe";
+        document.getElementById("name").innerHTML = JSONobject.name;
+        document.getElementById("url").innerHTML = JSONobject.url;
+        document.getElementById("slogan").innerHTML = JSONobject.slogan;
+    }
+
+    function delete_slogan() {
+        delete JSONobject.slogan
+        document.getElementById("name").innerHTML = JSONobject.name;
+        document.getElementById("url").innerHTML = JSONobject.url;
+        document.getElementById("slogan").innerHTML = JSONobject.slogan;
+    }
+</script>
+<script>
+    var JSONobject = {
+        "name": "google",
+        "url": "www.google.ca",
+        "slogan": "谷歌搜索"
+    };
+
+    document.getElementById("name").innerHTML = JSONobject.name;
+    document.getElementById("url").innerHTML = JSONobject.url;
+    document.getElementById("slogan").innerHTML = JSONobject.slogan;
+
+    var Json2 = {
+        "name2": "wjh",
+        "aleca2": 10000,
+        "sites2": {
+            "site1": "www.baidu.com1",
+            "site2": "www.baidu.com2",
+            "site3": "www.baidu.com3"
+        }
+    };
+
+    // document.getElementById("demo_4").innerHTML = Json2.sites2.site1;
+    for (x2 in Json2) {
+        document.getElementById("demo_3").innerHTML += x2 + "<br />";
+    }
+    for (x22 in Json2.sites2) {
+        document.getElementById("demo_4").innerHTML += Json2.sites2[x22] + "<br />";
+    }
+
+    var myObj = {"name": "runoob", "alexa": 10000, "site": null};
+    for (x in myObj) {
+        document.getElementById("demo_2").innerHTML += myObj[x] + "<br>";
+    }
+
+
+    var stu = {"student":           //stu 对象包含student的key,值为一个数组
+            [                                     //数组的每一个值为一个具体的学生对象
+                {"name": "Tom","Grade":1, "age":11, "gender": "M"},     //学生对象的键为名字,值为对应属性
+                {"name": "Jerry", "Grade":1, "age":10, "gender": "M"}       //每个属性对应的是一个key,value对
+            ],
+        "classroom": {"class1": "room1", "class2": "room2"}         //对象的值,嵌套对象
+    };
+    document.getElementById("demo_5").innerHTML = stu.student[0].name + stu.student[0]["age"];
+</script>
+
+</body>
+</html>

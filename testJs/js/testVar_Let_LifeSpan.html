@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<p id="demo_1"></p><br />
+<p id="demo_2"></p><br />
+<p id="demo_3"></p><br />
+<p id="demo_4"></p><br />
+<script>
+    var str1 = "";
+    var str2 = "";
+    var Json = {
+        "name": "wjh",
+        "aleca": 10000,
+        "sites": {
+            "site1": "www.baidu.com1",
+            "site2": "www.baidu.com2",
+            "site3": "www.baidu.com3"
+        }
+    };
+    var arr = [1, 2, 3, 4, 5];
+    for (let x in arr) {
+        str1 += x;
+    }
+    for (let x in Json.sites) {
+        str2 += Json.sites[x] + "<br />";
+    }
+    document.getElementById("demo_3").innerHTML = str2;
+
+    document.getElementById("demo_1").innerHTML = str1;
+    document.getElementById("demo_2").innerHTML = x;
+</script>
+
+</body>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>把 JSON 文本转换为 JavaScript 对象</title>
+</head>
+<body>
+<p>
+    网站名:<span id="name"></span><br />
+    网站地址:<span id="url"></span><br />
+    网站名:<span id="name2"></span><br />
+    网站地址:<span id="url2"></span><br />
+</p>
+<script>
+    var txt = '{ "sites" : [' +
+        '{ "name":"菜鸟教程" , "url":"www.runoob.com" },' +
+        '{ "name":"google" , "url":"www.google.com" },' +
+        '{ "name":"微博" , "url":"www.weibo.com" } ]}';
+    var Obj_1 = JSON.parse(txt);
+    document.getElementById("name").innerHTML = Obj_1.sites[1].name;
+    document.getElementById("url").innerHTML = Obj_1.sites[1].url;
+    var Obj_2 = eval("(" + txt + ")");
+    document.getElementById("name2").innerHTML = Obj_2.sites[2].name;
+    document.getElementById("url2").innerHTML = Obj_2.sites[2].url;
+</script>
+
+
+</body>
+</html>

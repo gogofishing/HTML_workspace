@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var count;
+        var count_Start;
+        var go = true;
+        var star_check = false;
+        function startC() {
+            if (!star_check) {
+                star_check = true;
+                count = document.getElementById("count").value * 1;
+                if(count =="" || count == null) {
+                    count = 1;
+                }
+                count_Start = setInterval("start_0()", 100);
+            }
+
+
+        }
+        function start_0() {
+            document.getElementById("count").value = count;
+            if (go) {
+                count = count + 1;
+            }
+
+        }
+        function time_out() {
+            go = false;
+        }
+        function time_resume() {
+            go = true;
+        }
+        function stopC() {
+            clearInterval(count_Start);
+            star_check = false;
+            document.getElementById("finish").innerHTML = "总计时长：" + (count - 1) + "毫秒。"
+        }
+    </script>
+</head>
+<body>
+<button type="button" id="start" onclick="startC()">开始计时</button>
+<br />
+<input type="text" id="count">
+<p id="finish"></p>
+<br />
+<button type="button" id="time_out" onclick="time_out()">暂停计时</button>
+<button type="button" id="time_resume" onclick="time_resume()">恢复计时</button>
+<button type="button" id="stop" onclick="stopC()">停止计时</button>
+</body>
+</html>

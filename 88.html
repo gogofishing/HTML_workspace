@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		9999乘法表
+		<script src="testJs/99.js"></script>
+	</head>
+	<body>
+		<%!
+		String printMultiTable() {
+			String s ="";
+			for(int i = 1; i <= 9; i++){
+				for(int j = 1; j <= 9; j++){
+					s += i + "*" + j + "=" + (i * j) + &nbsp;&nbsp;&nbsp;&nbsp;
+				}
+				s +="<br>";
+			}
+			return s;
+		}
+		%>
+		<h1>九九乘法表</h1>
+	<h4>borderless table</h4>
+	<table border="0">
+		<tr bgcolor="#f0f8ff">
+			<td>123</td>
+			<td>456</td>
+		</tr>
+		<tr bgcolor="#ffe4c4">
+			<td>1qweqw</td>
+			<td>fasdgasdf</td>
+		</tr>
+	</table>
+
+	</body>
+</html>

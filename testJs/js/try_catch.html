@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS错误</title>
+    <script>
+        var txt = "";
+        function message() {
+            try {
+                adddler("welcome guest！");
+            }
+            catch (err) {
+                txt = "本也有一个错误。\n\n";
+                txt += "错误描述：" + err.message + "\n\n";
+                txt += "点击确定继续。\n\n";
+                alert(txt);
+            }
+        }
+
+        function check() {
+            var txt = document.getElementById("demo_1").value;
+            try {
+                if(txt == "") {
+                    throw  "值为空";
+                }
+                if(isNaN(txt)){
+                    throw  "不是数字";
+                }
+                txt = Number(txt);
+                if(txt > 99) {
+                    throw "数字大于100";
+                }
+                if(txt < 10) {
+                    throw "数字小于10";
+                }
+            }
+            catch (e) {
+                document.getElementById("demo_2").innerHTML = "错误：" + e;
+            }
+        }
+    </script>
+</head>
+<body>
+<button type="button" onclick="message()">点击</button>
+<input type="text" id="demo_1">
+<button type="button" onclick="check()">查看输入</button>
+<p id="demo_2"></p>
+</body>
+</html>

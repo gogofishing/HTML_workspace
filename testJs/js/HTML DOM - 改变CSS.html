@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div {
+            background: cadetblue;
+            width: 120px;
+            height: 20px;
+            padding: 40px;
+        }
+    </style>
+    <script>
+        function change_1(e) {
+            console.log(e.innerHTML);
+
+            if (e.innerHTML == "Ooops!"){
+                e.innerHTML = "Haha!";
+            }
+            else {
+                e.innerHTML = "Ooops!";
+            }
+        }
+        function displayDate() {
+            document.getElementById("demo_1").innerHTML = Date();
+        }
+
+        function checkCookies() {
+            if (navigator.cookieEnabled == true) {
+                alert("cookie is available");
+            }
+            else {
+                alert("cookie is unavailable");
+            }
+        }
+
+        function leave() {
+            alert("exit!");
+        }
+
+        function toUpperCase() {
+            var str = document.getElementById("name_In");
+            str.value = str.value.toLocaleUpperCase();
+        }
+
+        function mOver(obj) {
+            obj.innerHTML = "Thank You!";
+        }
+        function mOut(obj) {
+            obj.innerHTML = "Mouse Over Me";
+        }
+
+        function dowm(obj) {
+            obj.style.background = "cornflowerblue";
+            obj.innerHTML = "Release Me!";
+        }
+        function up(obj) {
+            obj.style.background = "cadetblue";
+            obj.innerHTML = "Thank You!";
+        }
+
+        function light_on(obj) {
+            obj.src = "../../picture/pic_bulbon.gif";
+        }
+        function light_off(obj) {
+            obj.src = "../../picture/pic_bulboff.gif";
+        }
+    </script>
+</head>
+<body onload="checkCookies()" onunload="leave()">
+<p id="p1">Hello world!</p>
+<p id="p2">Hello world!</p>
+<script>
+    document.getElementById("p2").style.color = "blue";
+    document.getElementById("p2").style.fontFamily = "Arial";
+    document.getElementById("p2").style.fontSize = "1.7em";
+
+</script>
+<button type="button" onclick="document.getElementById('p1').style.color = 'red';">点击</button>
+<h1 onclick="this.innerHTML = 'Ooops!' ">点击我</h1>
+<h1 onclick="change_1(this)">点击我！</h1>
+<p>点击按钮执行<em>displayDate()</em>函数。</p>
+<button type="button" onclick="displayDate()">点击</button>
+<p id="demo_1"></p>
+<p>使用 HTML DOM 来分配事件</p>
+<button type="button" id="myBtn">点击</button>
+<script>
+    document.getElementById("myBtn").onclick = function () {
+        displayDate()
+    }
+</script>
+<p>当你离开输入框后，函数将被触发，将小写字母转为大写字母。</p>
+Name:<input type="text" id="name_In" onchange="toUpperCase()">
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" id="div_1">Mouse Over Me</div>
+<div id="div_2" onmousedown="dowm(this)" onmouseup="up(this)">Thank You!</div>
+<p>点击不释放鼠标灯将一直亮着!</p>
+<img id="bulb" onmousedown="light_on(this)" onmouseup="light_off(this)" src="../../picture/pic_bulboff.gif" height="180" width="100"/>
+</body>
+</html>

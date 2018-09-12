@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS显示数据</title>
+</head>
+<body>
+<h1>我的第一个界面</h1>
+<p id="demo_1">我的第一个段落</p>
+<button type="button" onclick="change_demo_1()">修改段落</button>
+<button type="button" onclick="show_date()">显示日期</button>
+<script>
+    window.alert(5 + 6);
+
+    function show_date() {
+        document.write(Date());
+    }
+
+    function change_demo_1() {
+        var x = document.getElementById("demo_1");
+        x.innerHTML = "段落已修改";
+    }
+</script>
+<h1>写到控制台</h1>
+<script>
+    var a = 5;
+    var b = 6;
+    var c = a + b + a;
+    console.log(c);
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript表单验证</title>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["fname"].value;
+            if (x == null || x == "") {
+                alert("需要输入名字。");
+                return false;
+            }
+        }
+
+        function numbFunction() {
+            var x, text;
+            x = document.getElementById("numb").value;
+            if(isNaN(x) || x < 1 || x > 10) {
+                text = "输入错误";
+            }
+            else {
+                text = "输入正确";
+            }
+            document.getElementById("demo_3").innerHTML = text;
+        }
+
+        function formTest() {
+            var x = document.forms["myForm_test"]["lastname"].value;
+            var y = document.forms["myForm_test"]["email"].value;
+            var e = y.indexOf("@");
+            var dot = y.lastIndexOf(".");
+            if (e < 1 || e > dot - 2 || dot > y.length - 2) {
+                alert("不是一个有效的 e-mail 地址");
+                return false;
+            }
+            if (x == null || x == "") {
+                alert("姓必须填写");
+                return false;
+            }
+        }
+        function check_2() {
+            var inpObj2 = document.getElementById("id1");
+            inpObj2.setCustomValidity('');
+            if(inpObj2.checkValidity() == false) {
+                /*
+                设置 input 元素的 validationMessage 属性，用于自定义错误提示信息的方法。
+                使用 setCustomValidity 设置了自定义提示后，validity.customError 就会变成true，
+                则 checkValidity 总是会返回false。
+                 */
+                document.getElementById("demo_4").innerHTML = inpObj2.validationMessage;
+            }
+            else {
+                document.getElementById("demo_4").innerHTML = "输入正确1";
+            }
+            document.getElementById("demo_5").innerHTML = "1值为：" + inpObj2.value  +
+                "，1条件判断：" + inpObj2.checkValidity();
+        }
+
+        function check_3() {
+            var inpObj3 = document.getElementById("id1");
+            inpObj3.setCustomValidity('');
+            if (inpObj3.checkValidity() == false) {
+                if (inpObj3.value == "") {
+                    inpObj3.setCustomValidity("不能为空!");
+                }
+                else if (inpObj3.value < 100) {
+                    inpObj3.setCustomValidity("输入的值小于100!");
+                }
+                else if (inpObj3.value > 300) {
+                    inpObj3.setCustomValidity("输入的值大于300!");
+                }
+                document.getElementById("demo_4").innerHTML = inpObj3.validationMessage;
+            }
+            else {
+                document.getElementById("demo_4").innerHTML = "输入正确2";
+            }
+            document.getElementById("demo_5").innerHTML = "2值为：" + inpObj3.value  +
+                "，2条件判断：" + inpObj3.checkValidity();
+        }
+
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        function check_4() {
+            var txt = "";
+            var inpObj = document.getElementById("id1");
+            if(!isNumeric(inpObj.value)) {
+                txt = "输入的不是数字";
+            }
+            else if(document.getElementById("id1").validity.rangeOverflow) {
+                txt = "输入的值太大了";
+            }
+            else if (inpObj.validity.rangeUnderflow) {
+                txt = "输入的值太小了";
+            }
+            else {
+                txt = "输入正确3";
+            }
+            document.getElementById("demo_4").innerHTML = txt;
+            document.getElementById("demo_5").innerHTML = "3值为：" + inpObj.value  +
+                "，3条件判断：" + inpObj.checkValidity();
+        }
+    </script>
+</head>
+<body>
+<form name="myForm" action="demo_form.html" onsubmit="return validateForm()" method="post">
+    名字：<input type="text" name="fname">
+    <input type="submit" value="提交">
+</form>
+<p>点击提交按钮，如果输入框是空的，浏览器会提示错误信息。</p>
+<form>
+    <input type="text" name="fname_2" required>
+    <input type="submit" value="提交">
+</form>
+<p>请输入1到10之间的数字</p>
+<input id="numb">
+<button type="button" onclick="numbFunction()">提交</button>
+<p id="demo_3"></p>
+<h3>表单验证</h3>
+<form name="myForm_test" onsubmit="return formTest()" method="post">
+    姓:<input type="text" name="lastname">
+
+    Email:<input type="text" name="email">
+
+    <input type="submit" value="提交">
+</form>
+
+<h3>输入数字并点击验证按钮</h3>
+<input id="id1" type="number" min="100" max="300" required>
+<button type="button" onclick="check_2()">checkValidity验证</button>
+<button type="button" onclick="check_3()">取消自定义提示的验证</button>
+<button type="button" onclick="check_4()">angeOverflow验证 & rangeUnderflow 验证</button>
+<p id="demo_4"></p>
+<p id="demo_5"></p>
+
+
+</body>
+</html>
