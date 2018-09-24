@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - 获取并设置 CSS 类</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("h1, h2, p").addClass("blue");
+                $("div").addClass("important");
+            });
+            $("#btn2").click(function () {
+                $("h1, h2, p").removeClass("blue");
+                $("div").removeClass("important");
+            });
+            $("#btn3").click(function () {
+                $("h1, h2, p").toggleClass("blue");
+                $("div").toggleClass("blue important");
+            });
+            $("#btn4").click(function () {
+                var rgb = $("#p1").css("background-color");
+                alert(rgb);
+            });
+            $("#btn5").click(function () {
+                $("#p2").css("background-color", "yellow");
+            });
+            $("#btn6").click(function () {
+                $("p").css({"font-size": "200%", "font-weight": "bold"});
+            });
+        });
+
+    </script>
+    <style>
+        .important {
+            font-size: xx-large;
+            font-weight: bold;
+        }
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<h1>标题1</h1>
+<h2>标题1</h2>
+<p>段落1</p>
+<p>段落2</p>
+<p>段落3</p>
+<div>重要文本</div><br />
+<button id="btn1" type="button">为元素添加class</button>
+<button id="btn2" type="button">为元素移除class</button>
+<button id="btn3" type="button">toggle为元素移除class</button>
+<h2>这是一个标题</h2>
+<p id="p1" style="background-color:#ff0000">这是一个段落。</p>
+<p id="p2" style="background-color:#00ff00">这是一个段落。</p>
+<p id="p3" style="background-color:#0000ff">这是一个段落。</p>
+<button id="btn4" type="button">返回第一个 p 元素的 background-color </button>
+<button id="btn5" type="button">设置 p 元素的 background-color </button>
+<button id="btn6" type="button">设置 多个p 元素的 background-color </button>
+</body>
+</html>

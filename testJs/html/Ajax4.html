@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax回调函数</title>
+    <script>
+        var xmlhttp;
+
+        function loadXMLDoc(url, callbackFunction) {
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = callbackFunction;
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function myFunction() {
+            loadXMLDoc("../files/demo_test.txt", function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("div1").innerHTML = xmlhttp.responseText;
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <h2>使用回调函数修改内容</h2>
+</div>
+<button id="btn1" type="button" onclick="myFunction();">修改内容</button>
+
+</body>
+</html>
