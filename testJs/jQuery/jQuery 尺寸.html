@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 尺寸</title>
+    <style>
+        div {
+            height: 100px;
+            width: 300px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                var text = "";
+                var txt = "";
+                text += "div 的宽度是：" + $("#div1").width() + "<br />";
+                text += "div 的高度是：" + $("#div1").height() + "<br />";
+                text += "div 的inner宽度是：" + $("#div1").innerWidth() + "<br />";
+                text += "div 的高度是：" + $("#div1").innerHeight() + "<br />";
+                text += "div 的outer宽度是：" + $("#div1").outerWidth() + "<br />";
+                text += "div 的outer高度是：" + $("#div1").outerHeight() + "<br />";
+                txt += "Document width/height: " + $(document).width();
+                txt += "x" + $(document).height() + "\n";
+                txt += "Window width/height: " + $(window).width();
+                $("#div1").html(text + txt);
+            });
+            $("#btn2").click(function () {
+                $("#div1").width(500).height(500);
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<button id="btn1" type="button">显示 div 元素的尺寸</button>
+<button id="btn2" type="button">显示 div 元素的尺寸</button>
+</body>
+</html>

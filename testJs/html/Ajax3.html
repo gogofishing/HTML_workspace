@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+            font-size: large;
+        }
+    </style>
+    <script>
+        function loadXMLDoc(fn) {
+            var xmlhttp;
+            var txt, x, i;
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            if (fn == 1) {
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        xmlDoc = xmlhttp.responseXML;
+                        txt = "";
+                        x = xmlDoc.getElementsByTagName("ARTIST");
+                        for (i = 0; i < x.length; i++) {
+                            txt = txt + "<td>" + x[i].childNodes[0].nodeValue + "<br />" ;
+                        }
+                        document.getElementById("div1").innerHTML = txt;
+                    }
+                };
+            }
+            if (fn == 2) {
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        xmlDoc = xmlhttp.responseXML;
+                        txt = "<table><tr><th>Artist</th><th>Title</th></tr>";
+                        x = xmlDoc.getElementsByTagName("CD");
+                        for (i = 0; i < x.length; i++) {
+                            txt = txt + "<tr><td>" + x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue + "</td><td>"+
+                                x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue + "</td></tr>";
+                        }
+                        txt = txt + "</table>";
+                        document.getElementById("div1").innerHTML = txt;
+                    }
+                };
+            }
+
+            xmlhttp.open("GET", "../files/cd_catalog.xml", true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+<h2>我收藏的CD:</h2>
+<div id="div1"></div>
+<button type="button" id="btn1" onclick="loadXMLDoc(1);">获取我的收藏</button>
+<button type="button" id="btn2" onclick="loadXMLDoc(2);">获取我的收藏详情</button>
+</body>
+</html>

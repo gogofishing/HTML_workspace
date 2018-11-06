@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 遍历 - 祖先</title>
+    <style>
+        .ancestors *
+        {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("span").parent().css({"color": "red", "border": "2px solid red"});
+            });
+            $("#btn2").click(function () {
+                $("span").parents().css({"color": "red", "border": "2px solid red"});
+            });
+            $("#btn3").click(function () {
+                $("span").parents("ul").css({"color": "red", "border": "2px solid red"});
+            });
+            $("#btn4").click(function () {
+                $("span").parentsUntil("div").css({"color": "red", "border": "2px solid red"});
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="ancestors">
+    <div style="width:500px;">div (曾祖父元素)
+        <ul>ul (祖父元素)
+            <li>li (父元素)
+                <span>span</span>
+            </li>
+        </ul>
+    </div>
+
+    <div style="width:500px;">div (祖父元素)
+        <p>p (父元素)
+            <span>span</span>
+        </p>
+    </div>
+</div>
+<button id="btn1">parent()</button>
+<button id="btn2">parents()</button>
+<button id="btn3">parent("ul")</button>
+<button id="btn4">parentsUntil()</button>
+</body>
+</html>

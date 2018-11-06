@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 效果- 动画</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#div1").animate({left: "250px"});
+            });
+            $("#btn2").click(function () {
+                $("#div2").animate({
+                    left: "250px",
+                    opacity: "0.25",
+                    height: "200px",
+                    width: "200px"
+                });
+            });
+            $("#btn3").click(function () {
+                $("#div3").animate({
+                    left: "250px",
+                    opacity: "0.5",
+                    height: "+=20px",
+                    width: "+=20px"
+                });
+            });
+            $("#btn11").click(function () {
+                $("#div1").animate({
+                    height: "toggle"
+                });
+            });
+            $("#btn21").click(function () {
+                var div = $("#div1");
+                div.animate({height: "300px", opacity: "0.25"}, "slow");
+                div.animate({width: "300px", opacity: "0.75"}, "slow");
+                div.animate({height: "100px", opacity: "0.25"}, "slow");
+                div.animate({width: "100px", opacity: "0.75"}, "slow");
+            });
+            $("#btn31").click(function () {
+                var div = $("#div1");
+                div.animate({left: "200px"}, "slow");
+                div.animate({fontSize: "3em"}, "slow");
+            });
+            $("#btn41").click(function () {
+                $('ul li').text(function(index, str) {
+                    return "old is :" + str + "new item number" + (index + 2);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>item number 1</li>
+    <li>item number 2</li>
+    <li>item number 3</li>
+</ul>
+<button id="btn41">Click <b>Me!</b></button>
+<button id="btn1">Click</button>
+<button id="btn11">Click</button>
+<button id="btn21">Animation</button>
+<button id="btn31">Animation2</button>
+<div id="div1" style="background-color: #98bf21; height: 100px; width: 100px; position: relative;">Hello</div><br />
+<button id="btn2">Click</button>
+<div id="div2" style="background-color: #98bf21; height: 100px; width: 100px; position: relative;"></div><br />
+<button id="btn3">Click</button>
+<div id="div3" style="background-color: #98bf21; height: 100px; width: 100px; position: relative;"></div><br />
+</body>
+</html>
